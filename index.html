@@ -236,7 +236,7 @@ function seed(){
   const mk = (name,emoji,color,extras={})=>({id:crypto.randomUUID(),name,emoji,color,...extras,done:{}});
   const habits = [
     mk('Morning run','🏃','#ec4899',{bg:'#ec489922'}),
-    mk('Read 20 pages','📚','#6366f1'),
+    mk('Read 20 pages','📚','#6366f1',{nameColor:'#ef4444'}),
     mk('Drink water','💧','#38bdf8'),
     mk('Meditate','🧘','#a855f7'),
   ];
@@ -311,7 +311,7 @@ function renderHabits(){
     return `<div class="habit" style="--hc:${h.color}${h.bg?`;--habit-bg:${h.bg}`:''}">
       <div class="emoji">${h.emoji}</div>
       <div class="info">
-        <div class="name">${escapeHtml(h.name)}</div>
+        <div class="name"${h.nameColor?` style="color:${h.nameColor}"`:''} >${escapeHtml(h.name)}</div>
         <div class="meta">
           <span class="fire">🔥 <b>${cs}</b> day streak</span>
           <span>Best <b>${ls}</b></span>
