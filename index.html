@@ -296,7 +296,7 @@ function renderStats(){
     ['30-day rate', `${avgRate}<small>%</small>`],
     ['Total check-ins', `${totalCheckins}`],
   ];
-  statsEl.innerHTML = cards.map(([k,v])=>`<div class="stat"><div class="k">${k}</div><div class="v">${v}</div></div>`).join('');
+  statsEl.innerHTML = cards.map(([k,v],i)=>`<div class="stat"${i===3?' style="color:#38bdf8"':''}><div class="k">${k}</div><div class="v">${v}</div></div>`).join('');
 }
 
 function renderHabits(){
